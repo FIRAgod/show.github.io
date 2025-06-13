@@ -6,7 +6,8 @@ const renderer = new SPLAT.WebGLRenderer();
 const controls = new SPLAT.OrbitControls(camera, renderer.canvas);
 
 async function main() {
-    const url = "public/bonsai-7k.splat";
+    // 使用相对于部署基础路径的 URL
+    const url = new URL("bonsai-7k.splat", import.meta.url).href;
 
     await SPLAT.Loader.LoadAsync(url, scene, () => {});
 
